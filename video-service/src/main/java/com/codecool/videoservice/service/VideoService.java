@@ -30,9 +30,12 @@ public class VideoService {
         List<Object> list = new ArrayList<>();
         list.add(repository.findById(id));
 
-        String recommendation = restTemplate.getForEntity(recommendationUrl + "/1",String.class).getBody();
-        System.out.println("the string is " + recommendation);
+        List recommendation = restTemplate.getForEntity(recommendationUrl + "/" + id,List.class).getBody();
+        list.add(recommendation);
         return list;
     }
 
+    public void updateVideoById(Long id,String name,String url) {
+        repository.updateById(id,name,url);
+    }
 }

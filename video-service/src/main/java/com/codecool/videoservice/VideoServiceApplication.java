@@ -48,22 +48,19 @@ public class VideoServiceApplication {
 	@Profile("production")
 	public CommandLineRunner init(){
 		return args -> {
-//			.url("https://www.youtube.com/watch?v=H6MLJG0RdDE")
 			Video video = Video.builder()
 					.name("Crawl")
-					.url("link")
+					.url("https://www.youtube.com/watch?v=H6MLJG0RdDE")
 					.build();
 
-//			https://www.youtube.com/watch?v=AvXjx8SZbv8
 			Video video2 = Video.builder()
 					.name("47 Meters Down: Uncaged")
-					.url("link")
+					.url("https://www.youtube.com/watch?v=AvXjx8SZbv8")
 					.build();
 
-//			https://www.youtube.com/watch?v=Tom4XAUoeZ0
 			Video video3 = Video.builder()
 					.name("Highkeeper Ra 40 dmg OTK Combo")
-					.url("link")
+					.url("https://www.youtube.com/watch?v=Tom4XAUoeZ0")
 					.build();
 
 			videoRepository.save(video);

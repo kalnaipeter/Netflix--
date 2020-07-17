@@ -3,13 +3,12 @@ package com.codecool.videoservice.controller;
 import com.codecool.videoservice.entity.Video;
 import com.codecool.videoservice.service.VideoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/video")
 public class VideoController {
 
     @Autowired
@@ -20,13 +19,15 @@ public class VideoController {
         return service.getAllWithoutRecommendation();
     }
 
-    @GetMapping("/1")
-    public String asd(){
-        return "asd";
-    }
-
-    @GetMapping("/video/{id}")
+    @GetMapping("/{id}")
     public List<Object> getVideoWithRecommendationById(@PathVariable("id")Long id){
         return service.getVideoWithRecommendationById(id);
+    }
+
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    public void updateVideoById(@PathVariable("id")Long id,
+                                @RequestParam("name") String name,
+                                @RequestParam("url")String url){
+        service.updateVideoById(id,name,url);
     }
 }
