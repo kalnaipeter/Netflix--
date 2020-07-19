@@ -9,6 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VideoService {
@@ -32,6 +33,7 @@ public class VideoService {
 
         List recommendation = restTemplate.getForEntity(recommendationUrl + "/" + id,List.class).getBody();
         list.add(recommendation);
+        System.out.println(list);
         return list;
     }
 

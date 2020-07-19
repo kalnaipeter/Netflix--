@@ -25,7 +25,7 @@ public class VideoController {
         return service.getVideoWithRecommendationById(id);
     }
 
-    @RequestMapping(value = "/update/{id}", method = RequestMethod.POST)
+    @RequestMapping("/update/{id}")
     public void updateVideoById(@PathVariable("id")Long id,
                                 @RequestParam("name") String name,
                                 @RequestParam("url")String url){

@@ -12,7 +12,7 @@ const VideoDetail = (props) => {
         axios.get(`http://localhost:8081/video/${props.match.params.id}`)
             .then(response => {
                 setDetails(response.data)});
-    }, []);
+    }, [props]);
     return (
             <div>
                 {details ? (
